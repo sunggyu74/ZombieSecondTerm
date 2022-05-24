@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Test1 : MonoBehaviour
 {
@@ -17,6 +17,6 @@ public class Test1 : MonoBehaviour
 
     public void Test()
     {
-        Debug.Log("³ª´Â ¹Ùº¸´Ù!");
+        Debug.Log("ë‚˜ëŠ” ë°”ë³´ë‹¤!");
     }
 }

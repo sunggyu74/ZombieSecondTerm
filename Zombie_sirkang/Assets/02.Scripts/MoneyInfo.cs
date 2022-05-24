@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MoneyInfo : MonoBehaviour
 {
-	// ¿ø ´ÜÀ§·Î ±İ¾× ±â·Ï
+	// ì› ë‹¨ìœ„ë¡œ ê¸ˆì•¡ ê¸°ë¡
 	private float m_won = 0; // 40000
 
 	public float manWon

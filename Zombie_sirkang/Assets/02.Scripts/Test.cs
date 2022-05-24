@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class Test : MonoBehaviour
 {
     void Start()
     {
-        // »õ·Î¿î ±İ¾× Á¤º¸ »ı¼º
+        // ìƒˆë¡œìš´ ê¸ˆì•¡ ì •ë³´ ìƒì„±
         MoneyInfo info = new MoneyInfo();
 
         info.won = 10000;
