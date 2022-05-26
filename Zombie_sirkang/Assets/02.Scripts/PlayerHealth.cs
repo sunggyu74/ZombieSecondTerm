@@ -19,13 +19,31 @@ public class PlayerHealth : LivingEntity{
     private PlayerShooter playerShooter; // 플레이어 슈터 컴포넌트
 
     private void Awake() {
-        // 사용할 컴포넌트 가져오기    
+        // 사용할 컴포넌트 가져오기
+        playerAnimator = GetComponent<Animator>();
+        playerAudioPlayer = GetComponent<AudioSource>();
+
+        playerMovement = GetComponent<PlayerMovement>();
+        playerShooter = GetComponent<PlayerShooter>();
+
     }
 
     protected override void OnEnable()
     {
         // LivingEntity의 OnEnable() 실행(상태 초기화)
         base.OnEnable();
+
+        // 체력 슬라이더 활성화
+        healthSlider.gameObject.SetActive(true);
+        // 체력 슬라이더의 값을 기본 체력값으로 변경
+        healthSlider.maxValue = startingHealth;
+        // 체력 슬라이더의 값을 현재 체력값으로 변경
+        healthSlider.value = health;
+
+        // 플레이어 조작을 받는 컴포넌트 활성화
+        playerMovement.enabled = true;
+        playerShooter.enabled = true; 
+
     }
 
     // 체력 회복
@@ -33,6 +51,10 @@ public class PlayerHealth : LivingEntity{
     {
         // LivingEntity의 RestoreHealth() 실행(체력 증가)
         base.RestoreHealth(newHealth);
+
+        // 갱신된 체력으로 체력 슬라이더 갱신
+        healthSlider.value = health;
+
     }
 
     // 대미지 처리
@@ -40,6 +62,7 @@ public class PlayerHealth : LivingEntity{
     {
         // LivingEntity의 OnDamage() 실행(대미지 적용)
         base.OnDamage(damage, hitPoint, hitNormal);
+
     }
 
     // 사망 처리
