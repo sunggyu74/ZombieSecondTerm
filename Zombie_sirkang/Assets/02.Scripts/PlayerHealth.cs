@@ -7,6 +7,8 @@ using UnityEngine.UI; // UI 관련 코드
 
 public class PlayerHealth : LivingEntity{
     public Slider healthSlider; // 체력을 표시할 UI 슬라이더
+    
+    //public Image fill;
 
     public AudioClip deathClip; // 사망 소리
     public AudioClip hitClip; // 피격 소리
@@ -56,8 +58,6 @@ public class PlayerHealth : LivingEntity{
         healthSlider.value = health;
 
         // 부드럽게 채워지는 체력바, bool
-        //if (healthSlider.value = haelth)       
-            //return;
 
     }
 
