@@ -182,7 +182,21 @@ public class Zombie : LivingEntity
         // 최근 공격 시점에서 timeBetAttack 이상 시간이 지났다면 공격 가능
         if (!dead && Time.time >= lastAttackTime + timeBetAttack){
             // 상대방의 LivingEntity 타입 가져오기 시도
-            
+            LivingEntity attackTarget = other.GetComponent<LivingEntity>();
+
+            // 상대방의 LivingEntity가 자신의 추적 대상이라면 공격 실행
+            if (attackTarget != null && attackTarget == targetEntity){
+                // 최근 공격 시간 갱신
+                lastAttackTime = Time.time;
+
+                // 상대방의 피격 위치의 피격 방향을 근사값으로 계산
+                Vector3 hitPoint = other.ClosestPoint(transform.position);
+                Vector3 hitNormal = transform.position - other.transform.position;
+
+                // 공격 실행
+                attackTarget.OnDamage(damage,hitPoint,hitNormal);
+
+            }
 
         }
 

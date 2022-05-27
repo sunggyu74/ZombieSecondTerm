@@ -63,8 +63,7 @@ public class Gun : MonoBehaviour
         // 현재 상태가 발사 가능한 상태 
         // &&(이면서) 마지막 총 발사 시점에서
         // gunData.timeBetFire 이상의 시간이 지났다면
-        if(state == State.Ready && Time.time >= 
-            lastFireTime + gunData.timeBetFire)
+        if(state == State.Ready && Time.time >= lastFireTime + gunData.timeBetFire)
         {
             // 마지막 총 발사 시점 갱신
             lastFireTime = Time.time;
@@ -81,8 +80,7 @@ public class Gun : MonoBehaviour
         Vector3 hitPosition = Vector3.zero;
 
         // 레이캐스트(시작 지점, 방향, 충돌 정보 컨테이너, 사정거리)
-        if(Physics.Raycast(fireTransform.position, 
-            fireTransform.forward, out hit, fireDistance))
+        if(Physics.Raycast(fireTransform.position,fireTransform.forward,out hit,fireDistance))
         {
             // 레이가 어떤 물체와 충돌한 경우
 
